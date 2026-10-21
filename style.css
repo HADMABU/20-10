@@ -1,0 +1,163 @@
+/* ==========================================================================
+   Botanical Flower Blooming - Pure Cinematic Experience
+   ========================================================================== */
+
+:root {
+  --bg-deep-teal: #081a1b;
+  --bg-mid-teal: #0f2e2f;
+  --bg-center-glow: #194646;
+  --text-ivory: #e6ded3;
+  --text-sub: #b5aaa0;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-deep-teal);
+  font-family: var(--font-sans);
+  color: var(--text-ivory);
+  user-select: none;
+}
+
+.stage-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 45%, var(--bg-center-glow) 0%, var(--bg-mid-teal) 45%, var(--bg-deep-teal) 100%);
+  cursor: pointer;
+}
+
+#bloomCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+/* ==========================================================================
+   Romantic Typography Header
+   ========================================================================== */
+
+.romantic-header {
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 10;
+}
+
+.romantic-header.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.romantic-header.fade-out {
+  opacity: 0 !important;
+  transform: translate(-50%, -20px) !important;
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--text-ivory);
+  text-shadow: 0 0 25px rgba(230, 222, 211, 0.35), 0 0 55px rgba(138, 204, 195, 0.2);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.sub-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--text-sub);
+  text-shadow: 0 0 15px rgba(181, 170, 160, 0.25);
+}
+
+/* ==========================================================================
+   Minimal Audio Button (Top Right)
+   ========================================================================== */
+
+.audio-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(12, 32, 33, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 50;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.audio-btn:hover {
+  background: rgba(25, 55, 56, 0.8);
+  transform: scale(1.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.audio-btn:active {
+  transform: scale(0.95);
+}
+
+/* ==========================================================================
+   Subtle Hint Overlay
+   ========================================================================== */
+
+.hint-overlay {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(12, 32, 33, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: rgba(230, 222, 211, 0.7);
+  letter-spacing: 0.04em;
+  pointer-events: none;
+  opacity: 0.85;
+  transition: opacity 1.5s ease;
+  z-index: 20;
+}
+
+.hint-overlay.fade {
+  opacity: 0;
+}
+
+.hidden {
+  display: none !important;
+}
